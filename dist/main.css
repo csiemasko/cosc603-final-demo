@@ -1,0 +1,14 @@
+html,
+body {
+  background: #eee;
+}
+.result-label {
+  display: inline-block;
+  margin-right: 10px;
+}
+.result {
+  display: inline-block;
+  padding: 3px;
+  background: #fff;
+  border: 1px solid #000;
+}
