@@ -22,4 +22,12 @@ html(lang="en")
                     input(v-model="inputs.email")
                     .result-label Valid Email:
                     .result {{ inputs.email | email }}
+                .input-item
+                    input(v-model="inputs.isValidPassword")
+                    .result-label Valid Password:
+                    .result {{inputs.isValidPassword | valid-password}}
+                .input-item
+                    input(v-model="inputs.isPwdConfirmed")
+                    .result-label Confirmed Password:
+                    .result {{inputs.isPwdConfirmed | confirmed-password}}
     script(src="main.js")
