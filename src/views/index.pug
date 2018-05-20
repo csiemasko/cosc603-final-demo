@@ -11,15 +11,33 @@ html(lang="en")
         #root
             .input-wrapper
                 .input-item
-                    input(v-model="inputs.stringLength")
+                    input(v-model="inputs.stringLength" placeholder="Type something")
                     .result-label Character Count:
-                    .result {{ inputs.stringLength | string-length }}
+                    .result {{ stringLength(inputs.stringLength) }}
                 .input-item
-                    input(v-model="inputs.isNumeric")
+                    input(v-model="inputs.isNumeric" placeholder="Type something")
                     .result-label Is Numeric:
-                    .result {{ inputs.isNumeric | is-numeric }}
+                    .result {{ isNumeric(inputs.isNumeric) }}
                 .input-item
-                    input(v-model="inputs.email")
+                    input(v-model="inputs.email" placeholder="Type an email address")
                     .result-label Valid Email:
-                    .result {{ inputs.email | email }}
+                    .result {{ validEmail(inputs.email) }}
+            .multi-wrapper
+                h2 Select an Animal
+                .multi-item-wrapper                                    
+                    .img-wrapper
+                        img(v-for="a in sources.multiAnimal" :src="a.img" @click="inputs.selectedAnimal = a")
+                .result-label Image Matches
+                .result {{ inputs.selectedAnimal != null ? inputs.selectedAnimal.text : '' }}
+            .multi-wrapper
+                select(v-model="inputs.selectedAnimal2")
+                    option(v-for="a in sources.multiAnimal" :value="a.text") {{ a.text }}
+                .result-label Mammal Selected
+                #mammal.result {{ mammalSelected(inputs.selectedAnimal2) }}
+            .multi-wrapper
+                .multi-item-wrapper
+                    .multi-item(v-for="c in sources.multiDomesticCars") {{ c }}
+                input(v-model="inputs.domesticCar" placeholder="Enter a car manufacturer")
+                .result-label Not In List:
+                .result {{ notInDomesticCars(inputs.domesticCar) }}
     script(src="main.js")
