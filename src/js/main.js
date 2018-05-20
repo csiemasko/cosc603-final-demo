@@ -16,7 +16,7 @@ var _v = new Vue({
             // The string must contain at least 1 numeric character
             // The string must contain at least one special character, but we are escaping reserved RegEx characters to avoid conflict
             // The string must be 6 characters or longer
-            return v == null || v.length < 5 ? false : v.match("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})") == null ? false : true;
+            return v == null ? false : v.match("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})") == null ? false : true;
         },
         'confirmed-password'(v){
 
